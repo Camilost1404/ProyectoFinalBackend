@@ -49,6 +49,7 @@ exports.add = async (req, res, next) => {
     try {
         const users = await models.Usuario.findOne({where: {email: req.body.email}})
         if(!users){
+            req.body.password = bcrypt.hashSync(req.body.password, 10);
             const user = await models.Usuario.create(req.body);
             res.status(200).json(user);
         }else{

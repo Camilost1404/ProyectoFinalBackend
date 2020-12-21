@@ -26,6 +26,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       rol: {
+        defaultValue: "",
         type: Sequelize.STRING
       },
       estado: {
