@@ -34,6 +34,10 @@ module.exports = {
           key: "id",
         }
       },
+      Precio: {
+        allowNull: false,
+        type: Sequelize.String,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

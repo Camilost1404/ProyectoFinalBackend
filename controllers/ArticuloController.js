@@ -41,7 +41,7 @@ exports.update = async (req, res, next) => {
     try {
         const articles = await models.Articulo.findOne({where: {codigo: req.body.codigo}})
         if(!articles){
-            const article = await models.Articulo.update({codigo: req.body.codigo, nombre: req.body.nombre, descripcion:
+            const article = await models.Articulo.update({codigo: req.body.codigo, nombre: req.body.nombre, precio: req.body.precio, descripcion:
             req.body.descripcion }, { where: { id: req.body.id } });
             res.status(200).json(article);
         }else{
