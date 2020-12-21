@@ -12,11 +12,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       codigo: {
-        unique: true,
         allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       nombre: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      precio: {
         allowNull: false,
         type: Sequelize.STRING
       },
@@ -24,19 +28,17 @@ module.exports = {
         type: Sequelize.STRING
       },
       estado: {
+        allowNull: false,
+        defaultValue: 1,
         type: Sequelize.INTEGER
       },
       categoriaId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {
+        references:{
           model: "Categoria",
-          key: "id",
+          key: "id"
         }
-      },
-      Precio: {
-        allowNull: false,
-        type: Sequelize.String,
       },
       createdAt: {
         allowNull: false,
