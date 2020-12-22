@@ -39,16 +39,9 @@ exports.add = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        const articles = await models.Articulo.findOne({where: {codigo: req.body.codigo}})
-        if(!articles){
-            const article = await models.Articulo.update({codigo: req.body.codigo, nombre: req.body.nombre, precio: req.body.precio, descripcion:
-            req.body.descripcion }, { where: { id: req.body.id } });
-            res.status(200).json(article);
-        }else{
-            res.status(409).send({
-                message: "Code is already in use"
-            })
-        }
+        const article = await models.Articulo.update({imagen: req.body.imagen, codigo: req.body.codigo, nombre: req.body.nombre, precio: req.body.precio, descripcion:
+        req.body.descripcion }, { where: { id: req.body.id } });
+        res.status(200).json(article);
     } catch (error) {
         res.status(500).send({
             message: "Error -> 500"
