@@ -33,7 +33,7 @@ exports.add = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        const category = await models.Categoria.update({ nombre: req.body.nombre, descripcion:
+        const category = await models.Categoria.update({ imagen: req.body.imagen, nombre: req.body.nombre, descripcion:
         req.body.descripcion }, { where: { id: req.body.id } });
         res.status(200).json(category);
     } catch (error) {
